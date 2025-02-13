@@ -1,0 +1,34 @@
+﻿@model Result<BlogViewModel>
+
+<div class="card">
+    <div class="card-header d-flex justify-content-between">
+        <div class="header-title">
+            <h4 class="card-title">Blog Edit Form</h4>
+        </div>
+    </div>
+    <div class="card-body">
+        <form class="form-horizontal" method="post" action="/Blogs/Update/@Model.Data.BlogId">
+            <div class="form-group row">
+                <label class="control-label col-sm-3 align-self-center mb-0" for="BlogTitle">Blog Title</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control mb-3" id="BlogTitle" placeholder="Enter Your  Title" value="@Model.Data.BlogTitle"  name="BlogTitle">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-3 align-self-center mb-0" for="BlogAuthor">Blog Author</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control mb-3" id="BlogAuthor" placeholder="Enter Your  Author" value="@Model.Data.BlogAuthor"  name="BlogAuthor">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-3 align-self-center mb-0" for="content">Blog Content</label>
+                <div class="col-sm-9">
+                    <textarea class="form-control form-control-sm mb-3" id="content" rows="3" name="BlogContent">@Model.Data.BlogContent</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

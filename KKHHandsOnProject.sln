@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KKHHandsOnProject.BlogMvcApp", "KKHHandsOnProject.BlogMvcApp\KKHHandsOnProject.BlogMvcApp.csproj", "{6223E8EC-3D6E-487C-9A59-7F1808281253}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KKHHandsOnProject.Database", "KKHHandsOnProject.Database\KKHHandsOnProject.Database.csproj", "{B523F8DD-A341-41B4-8F4F-DECE8B70F70E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{63196AA7-DCD3-44BA-9361-3C499E76ECE4}"
+	ProjectSection(SolutionItems) = preProject
+		Note.md = Note.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6223E8EC-3D6E-487C-9A59-7F1808281253}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6223E8EC-3D6E-487C-9A59-7F1808281253}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6223E8EC-3D6E-487C-9A59-7F1808281253}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6223E8EC-3D6E-487C-9A59-7F1808281253}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B523F8DD-A341-41B4-8F4F-DECE8B70F70E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B523F8DD-A341-41B4-8F4F-DECE8B70F70E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B523F8DD-A341-41B4-8F4F-DECE8B70F70E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B523F8DD-A341-41B4-8F4F-DECE8B70F70E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E9362736-BAF7-4808-ABF1-F159D26FFE5F}
+	EndGlobalSection
+EndGlobal

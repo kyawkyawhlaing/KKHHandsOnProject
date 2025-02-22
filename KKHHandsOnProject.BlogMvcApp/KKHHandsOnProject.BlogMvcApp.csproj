@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\KKHHandsOnProject.Database\KKHHandsOnProject.Database.csproj" />
+    <ProjectReference Include="..\KKHHandsOnProject.Domain\KKHHandsOnProject.Domain.csproj" />
+    <ProjectReference Include="..\KKHHandsOnProject.Shared\KKHHandsOnProject.Shared.csproj" />
   </ItemGroup>
 
 </Project>

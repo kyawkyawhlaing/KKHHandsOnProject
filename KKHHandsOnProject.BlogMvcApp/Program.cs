@@ -1,13 +1,11 @@
-using KKHHandsOnProject.BlogMvcApp.src.Features.Blogs;
 using KKHHandsOnProject.Database.Data;
 using Microsoft.EntityFrameworkCore;
-using System.Xml.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<IBlogsService, BlogsService>();
+builder.AddBlogServices();
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
@@ -31,7 +29,7 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllerRoute(
-    name: "src/Features",
+    name: "src/Features/*",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

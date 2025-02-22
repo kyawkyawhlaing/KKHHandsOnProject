@@ -1,15 +1,12 @@
-﻿using KKHHandsOnProject.BlogMvcApp.src.Models.RequestModels;
-using KKHHandsOnProject.BlogMvcApp.src.Models.ViewModels;
-using KKHHandsOnProject.BlogMvcApp.src.Shared.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace KKHHandsOnProject.BlogMvcApp.src.Features.Blogs
 {
     public class BlogsController : Controller
     {
-        private readonly IBlogsService _blogService;
+        private readonly BlogService _blogService;
 
-        public BlogsController(IBlogsService blogService)
+        public BlogsController(BlogService blogService)
         {
             _blogService = blogService;
         }
@@ -20,7 +17,7 @@ namespace KKHHandsOnProject.BlogMvcApp.src.Features.Blogs
             var _dt = _blogService.GetBlogDataTable(Request);
             return Json(new
             {
-                draw            = Request.Form["draw"].FirstOrDefault() ?? "0",
+                draw            = _dt.Draw,
                 recordsTotal    = _dt.RecordsTotal,
                 recordsFiltered = _dt.RecordsFiltered,
                 data            = _dt.Data,

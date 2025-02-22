@@ -12,6 +12,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{
 		Note.md = Note.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KKHHandsOnProject.Shared", "KKHHandsOnProject.Shared\KKHHandsOnProject.Shared.csproj", "{FB212FAD-6EC2-400C-BFF9-E4E1ED1BD669}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KKHHandsOnProject.Domain", "KKHHandsOnProject.Domain\KKHHandsOnProject.Domain.csproj", "{D7ADEBD9-C4BC-4C5E-A2A7-7B2DA9538BEB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +30,14 @@ Global
 		{B523F8DD-A341-41B4-8F4F-DECE8B70F70E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B523F8DD-A341-41B4-8F4F-DECE8B70F70E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B523F8DD-A341-41B4-8F4F-DECE8B70F70E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB212FAD-6EC2-400C-BFF9-E4E1ED1BD669}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB212FAD-6EC2-400C-BFF9-E4E1ED1BD669}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB212FAD-6EC2-400C-BFF9-E4E1ED1BD669}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB212FAD-6EC2-400C-BFF9-E4E1ED1BD669}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7ADEBD9-C4BC-4C5E-A2A7-7B2DA9538BEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7ADEBD9-C4BC-4C5E-A2A7-7B2DA9538BEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7ADEBD9-C4BC-4C5E-A2A7-7B2DA9538BEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7ADEBD9-C4BC-4C5E-A2A7-7B2DA9538BEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

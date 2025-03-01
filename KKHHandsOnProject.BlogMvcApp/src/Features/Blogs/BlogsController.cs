@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace KKHHandsOnProject.BlogMvcApp.src.Features.Blogs
+namespace KKHHandsOnProject.BlogMvcApp.Features.Blogs
 {
     public class BlogsController : Controller
     {
@@ -14,13 +14,13 @@ namespace KKHHandsOnProject.BlogMvcApp.src.Features.Blogs
         [HttpPost]
         public IActionResult GetBlogDataTable()
         {
-            var _dt = _blogService.GetBlogDataTable(Request);
+            var dt = _blogService.GetBlogDataTable(Request);
             return Json(new
             {
-                draw            = _dt.Draw,
-                recordsTotal    = _dt.RecordsTotal,
-                recordsFiltered = _dt.RecordsFiltered,
-                data            = _dt.Data,
+                draw            = dt.Draw,
+                recordsTotal    = dt.RecordsTotal,
+                recordsFiltered = dt.RecordsFiltered,
+                data            = dt.Data,
             });
         }
 

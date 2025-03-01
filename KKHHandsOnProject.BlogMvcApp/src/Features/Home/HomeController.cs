@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace KKHHandsOnProject.BlogMvcApp.src.Features.Home
+namespace KKHHandsOnProject.BlogMvcApp.Features.Home
 {
     public class HomeController : Controller
     {

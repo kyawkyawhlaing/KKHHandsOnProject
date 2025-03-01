@@ -18,7 +18,7 @@ public class BlogService
     {
         try
         {
-            _dbContext.Blogs.Add(new BlogDataModel
+            _dbContext.Blogs!.Add(new BlogDataModel
             {
                 BlogTitle  = blog.BlogTitle!,
                 BlogAuthor = blog.BlogAuthor!,
@@ -41,7 +41,7 @@ public class BlogService
 
     public Result<BlogViewModel> DeleteBlog(int id)
     {
-        var item = _dbContext.Blogs.AsNoTracking().FirstOrDefault(x => x.BlogId == id)!;
+        var item = _dbContext.Blogs!.AsNoTracking().FirstOrDefault(x => x.BlogId == id)!;
         _dbContext.Entry(item).State = EntityState.Deleted;
         int result = _dbContext.SaveChanges();
         if (result is 1)
@@ -61,7 +61,7 @@ public class BlogService
 
     public Result<BlogViewModel> GetBlog(int id)
     {
-        var item = _dbContext.Blogs.AsNoTracking().FirstOrDefault(x => x.BlogId == id);
+        var item = _dbContext.Blogs!.AsNoTracking().FirstOrDefault(x => x.BlogId == id);
         if (item is null)
         {
             _model = Result<BlogViewModel>.NotFound("Blog not found");
@@ -93,14 +93,14 @@ public class BlogService
         string sortColumn = request.Form[$@"columns[{orderColumn}][data]"].FirstOrDefault()! ??
                             request.Form["columns[0][data]"].FirstOrDefault()!;
         string sortDir = request.Form["order[0][dir]"].FirstOrDefault() ?? "asc";
-        var items = _dbContext.Blogs.AsNoTracking().Select(x => new BlogViewModel
+        var items = _dbContext.Blogs!.AsNoTracking().Select(x => new BlogViewModel
             {
                 BlogId = x.BlogId,
                 BlogTitle = x.BlogTitle,
                 BlogAuthor = x.BlogAuthor,
                 BlogContent = x.BlogContent
             })
-            .Where(x => x.BlogAuthor.Contains(searchValue) || x.BlogTitle.Contains(searchValue))
+            .Where(x => x.BlogAuthor!.Contains(searchValue) || x.BlogTitle!.Contains(searchValue))
             .Skip(pageNumber)
             .Take(pageSize);
 
@@ -117,40 +117,28 @@ public class BlogService
         return new JQueryPaginationResponseModel<BlogViewModel>
         {
             Draw = draw,
-            RecordsTotal = _dbContext.Blogs.AsNoTracking().Count(),
-            RecordsFiltered = searchValue.Length > 0 ? items.ToList().Count : _dbContext.Blogs.AsNoTracking().Count(),
+            RecordsTotal = _dbContext.Blogs!.AsNoTracking().Count(),
+            RecordsFiltered = searchValue.Length > 0 ? items.ToList().Count : _dbContext.Blogs!.AsNoTracking().Count(),
             Data = orderedQuery
         };
     }
 
     public Result<List<BlogViewModel>> GetBlogs()
     {
-        Result<List<BlogViewModel>> model = new Result<List<BlogViewModel>>();
-        var items = _dbContext.Blogs.AsNoTracking().Select(x => new BlogViewModel
+        var items = _dbContext.Blogs!.AsNoTracking().Select(x => new BlogViewModel
         {
             BlogId = x.BlogId,
             BlogTitle = x.BlogTitle,
             BlogAuthor = x.BlogAuthor,
             BlogContent = x.BlogContent
         }).ToList();
-        if (items is null)
-        {
-            model = Result<List<BlogViewModel>>.NotFound("Blogs not found");
-            goto Result;
-        }
-        else
-        {
-            model = Result<List<BlogViewModel>>.Success(items);
-            goto Result;
-        }
-
-        Result:
+        Result<List<BlogViewModel>> model = Result<List<BlogViewModel>>.Success(items);
         return model;
     }
 
     public Result<BlogViewModel> UpdateBlog(int id, BlogRequestModel blog)
     {
-        var item = _dbContext.Blogs.AsNoTracking().FirstOrDefault(x => x.BlogId == id)!;
+        var item = _dbContext.Blogs!.AsNoTracking().FirstOrDefault(x => x.BlogId == id)!;
         if (blog.BlogTitle is not null)
         {
             item.BlogTitle = blog.BlogTitle;

@@ -11,7 +11,7 @@ public partial class AppDbContext : DbContext
     {
     }
 
-    public virtual DbSet<BlogDataModel>? Blogs { get; set; }
+    public virtual DbSet<BlogDataModel>? Blogs { get; set; } 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

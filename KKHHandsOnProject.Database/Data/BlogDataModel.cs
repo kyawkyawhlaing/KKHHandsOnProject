@@ -14,6 +14,7 @@ public partial class BlogDataModel
     public string BlogAuthor { get; set; } = null!;
 
     public string BlogContent { get; set; } = null!;
+    public string? BlogImagePath { get; set; }
 
     public bool DeleteFlag { get; set; }
 }

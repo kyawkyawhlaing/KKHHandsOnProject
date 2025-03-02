@@ -1,4 +1,5 @@
 using System.Linq.Expressions;
+using KKHHandsOnProject.Shared.Constants;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,11 +21,12 @@ public class BlogService
         {
             _dbContext.Blogs!.Add(new BlogDataModel
             {
-                BlogTitle  = blog.BlogTitle!,
-                BlogAuthor = blog.BlogAuthor!,
+                BlogTitle   = blog.BlogTitle!,
+                BlogAuthor  = blog.BlogAuthor!,
                 BlogContent = blog.BlogContent!,
+                BlogImagePath   = FilePathConstants.ImagePath + blog.BlogImage!.FileName,
             });
-            _dbContext.SaveChanges();
+            //_dbContext.SaveChanges();
             _model = Result<BlogViewModel>.Success(null, "Blog has created successfully");
             goto Result;
         }

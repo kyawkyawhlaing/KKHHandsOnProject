@@ -7,7 +7,7 @@
         </div>
     </div>
     <div class="card-body">
-        <form class="form-horizontal" method="post" action="/Blogs/Create">
+        <form class="form-horizontal" method="post" action="/Blogs/Create" enctype="multipart/form-data">
             <div class="form-group row">
                 <label class="control-label col-sm-3 align-self-center mb-0" for="BlogTitle">Blog Title</label>
                 <div class="col-sm-9">
@@ -20,6 +20,13 @@
                 <div class="col-sm-9">
                     <input type="text" class="form-control mb-3" id="BlogAuthor" placeholder="Enter Your  Author" name="BlogAuthor">
                     <span class="text-danger" asp-validation-for="BlogAuthor"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-3 align-self-center mb-0" for="BlogImage">Blog Image</label>
+                <div class="col-sm-9">
+                    <input type="file" class="form-control mb-3" id="BlogImage" name="BlogImage" multiple="false">
+                    <span class="text-danger" asp-validation-for="BlogImage"></span>
                 </div>
             </div>
             <div class="form-group row">

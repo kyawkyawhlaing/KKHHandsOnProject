@@ -1,4 +1,5 @@
 using System.Reflection;
+using KKHHandsOnProject.Database.DapperData;
 using KKHHandsOnProject.Database.Data;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Microsoft.EntityFrameworkCore;
@@ -7,12 +8,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.AddBlogServices();
+
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
-
+builder.AddDapperServices();
+builder.AddBlogServices();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

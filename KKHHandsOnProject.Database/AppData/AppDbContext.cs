@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using KKHHandsOnProject.Database.AppData;
 using Microsoft.EntityFrameworkCore;
 
 namespace KKHHandsOnProject.Database.Data;

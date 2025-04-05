@@ -4,16 +4,19 @@ namespace KKHHandsOnProject.BlogMvcApp.Features.Blogs
 {
     public class BlogsController : Controller
     {
+        private readonly ILogger<BlogsController> _logger;
         private readonly BlogService _blogService;
 
-        public BlogsController(BlogService blogService)
+        public BlogsController(BlogService blogService, ILogger<BlogsController> logger)
         {
             _blogService = blogService;
+            _logger = logger;
         }
 
         [HttpPost]
         public IActionResult GetBlogDataTable()
         {
+            _logger.LogInformation("Custom Logs: Get Data Table at {NOW}", DateTime.Now);
             var dt = _blogService.GetBlogDataTable(Request);
             return Json(new
             {

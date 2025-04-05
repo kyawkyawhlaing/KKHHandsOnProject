@@ -11,9 +11,13 @@ namespace KKHHandsOnProject.Domain.Features.Blogs
     public class BlogsActionFilter : IActionFilter
     {
         private readonly ILogger<BlogsActionFilter> _logger;
-        public BlogsActionFilter(ILogger<BlogsActionFilter> logger)
+        private readonly string _key;
+        private readonly string _value;
+        public BlogsActionFilter(ILogger<BlogsActionFilter> logger, string key, string value)
         {
             _logger = logger;
+            _key = key;
+            _value = value;
         }
         // Before
         public void OnActionExecuting(ActionExecutingContext context)
@@ -32,6 +36,7 @@ namespace KKHHandsOnProject.Domain.Features.Blogs
         {
             _logger.LogInformation("After : {FileName}.{MethodName}", nameof(BlogsActionFilter), nameof(OnActionExecuted));
             IDictionary<string, object?>? parameters = (IDictionary<string, object>) context.HttpContext.Items["arguments"];
+            context.HttpContext.Response.Headers[_key] = _value;
    
         }
 

@@ -89,7 +89,10 @@ namespace KKHHandsOnProject.BlogMvcApp.Features.Blogs
         }
 
         [HttpGet("/TestActionFilter")]
-        [TypeFilter(typeof(BlogsActionFilter))]
+        [TypeFilter(typeof(BlogsActionFilter),Arguments = new object[]
+        {
+            "x-custom-header", "Custom Value"
+        })]
         public void TestActionFilter(string? fname, string? lname)
         {
             Console.WriteLine($"At Method: {fname}");

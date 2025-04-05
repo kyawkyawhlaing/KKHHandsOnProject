@@ -87,5 +87,15 @@ namespace KKHHandsOnProject.BlogMvcApp.Features.Blogs
             TempData["Message"] = item.Message;
             return RedirectToAction("Index");
         }
+
+        [HttpGet("/TestActionFilter")]
+        [TypeFilter(typeof(BlogsActionFilter))]
+        public void TestActionFilter(string? fname, string? lname)
+        {
+            Console.WriteLine($"At Method: {fname}");
+           
+        }
     }
+
+
 }

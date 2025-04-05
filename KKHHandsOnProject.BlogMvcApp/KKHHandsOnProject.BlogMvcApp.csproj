@@ -16,4 +16,8 @@
     <Folder Include="logs\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Serilog.Sinks.Seq" Version="8.0.0" />
+  </ItemGroup>
+
 </Project>

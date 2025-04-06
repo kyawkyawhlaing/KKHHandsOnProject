@@ -1,4 +1,5 @@
-﻿using KKHHandsOnProject.Shared.Models;
+﻿using KKHHandsOnProject.Shared;
+using KKHHandsOnProject.Shared.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -18,11 +19,9 @@ namespace KKHHandsOnProject.BlogMvcApp.Features.Blogs
         [HttpPost]
         public IActionResult GetBlogDataTable()
         {
-            LogInformation log = new LogInformation();
-            log.Message = $"Retrieve Data Table List at {DateTime.Now.ToString("yyyy-MMM-dd HH:mm")}";
             LogData logData = new LogData();
             logData.Status = "R";
-            log.Data = logData;
+            LogInformation log = DevCode.GetLogs($"Retrieve Data Table List at {DateTime.Now.ToString("yyyy-MMM-dd HH:mm")}", logData);
             _logger.LogInformation("{@Object}", JsonConvert.SerializeObject(log));
             var dt = _blogService.GetBlogDataTable(Request);
             return Json(new

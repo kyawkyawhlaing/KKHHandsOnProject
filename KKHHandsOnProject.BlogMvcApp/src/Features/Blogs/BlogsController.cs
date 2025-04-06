@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using KKHHandsOnProject.Shared.Models;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace KKHHandsOnProject.BlogMvcApp.Features.Blogs
 {
@@ -16,7 +18,12 @@ namespace KKHHandsOnProject.BlogMvcApp.Features.Blogs
         [HttpPost]
         public IActionResult GetBlogDataTable()
         {
-            _logger.LogInformation("Custom Logs: Get Data Table at {NOW}", DateTime.Now);
+            LogInformation log = new LogInformation();
+            log.Message = $"Retrieve Data Table List at {DateTime.Now.ToString("yyyy-MMM-dd HH:mm")}";
+            LogData logData = new LogData();
+            logData.Status = "R";
+            log.Data = logData;
+            _logger.LogInformation("{@Object}", JsonConvert.SerializeObject(log));
             var dt = _blogService.GetBlogDataTable(Request);
             return Json(new
             {
@@ -93,9 +100,9 @@ namespace KKHHandsOnProject.BlogMvcApp.Features.Blogs
         {
             "x-custom-header", "Custom Value"
         })]
-        public void TestActionFilter(string? fname, string? lname)
+        public IActionResult TestActionFilter(string? fname, string? lname)
         {
-            Console.WriteLine($"At Method: {fname}");
+            return Json(new { firstName = fname, lastName = lname});
            
         }
     }

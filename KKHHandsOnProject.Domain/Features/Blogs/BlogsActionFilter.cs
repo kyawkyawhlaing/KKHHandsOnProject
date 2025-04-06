@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace KKHHandsOnProject.Domain.Features.Blogs
 {
-    public class BlogsActionFilter : IActionFilter
+    public class BlogsActionFilter : IAsyncActionFilter
     {
         private readonly ILogger<BlogsActionFilter> _logger;
         private readonly string _key;
@@ -19,26 +19,23 @@ namespace KKHHandsOnProject.Domain.Features.Blogs
             _key = key;
             _value = value;
         }
-        // Before
-        public void OnActionExecuting(ActionExecutingContext context)
+
+        public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
-            _logger.LogInformation("Before : {FileName}.{MethodName}", nameof(BlogsActionFilter), nameof(OnActionExecuting));
-           if (context.ActionArguments.ContainsKey("fname"))
+            // Before
+            _logger.LogInformation("Before : {FileName}.{MethodName} - Before", nameof(BlogsActionFilter), nameof(OnActionExecutionAsync));
+            if (context.ActionArguments.ContainsKey("fname"))
             {
                 context.HttpContext.Items["arguments"] = context.ActionArguments;
                 string? fname = Convert.ToString(context.ActionArguments["fname"]);
-                context.ActionArguments["fname"] = "Static Value";
+                context.ActionArguments["fname"] = "Method argument was changed by Custom Filter";
             }
-        }
-
-        // After
-        public void OnActionExecuted(ActionExecutedContext context)
-        {
-            _logger.LogInformation("After : {FileName}.{MethodName}", nameof(BlogsActionFilter), nameof(OnActionExecuted));
-            IDictionary<string, object?>? parameters = (IDictionary<string, object>) context.HttpContext.Items["arguments"];
+            await next();
+            // After
+            _logger.LogInformation("After : {FileName}.{MethodName} - After", nameof(BlogsActionFilter), nameof(OnActionExecutionAsync));
+            IDictionary<string, object?>? parameters = (IDictionary<string, object>)context.HttpContext.Items["arguments"];
             context.HttpContext.Response.Headers[_key] = _value;
-   
-        }
 
+        }
     }
 }

@@ -21,7 +21,7 @@ namespace KKHHandsOnProject.BlogMvcApp.Features.Blogs
         {
             LogData logData = new LogData();
             logData.Status = "R";
-            LogInformation log = DevCode.GetLogs($"Retrieve Data Table List at {DateTime.Now.ToString("yyyy-MMM-dd HH:mm")}", logData);
+            LogInformation log = DevCode.GetLogs($"Retrieve Data Table List at {DateTime.Now.ToString("yyyy-MMM-dd hh:mm:ss tt")}", logData);
             _logger.LogInformation("{@Object}", JsonConvert.SerializeObject(log));
             var dt = _blogService.GetBlogDataTable(Request);
             return Json(new

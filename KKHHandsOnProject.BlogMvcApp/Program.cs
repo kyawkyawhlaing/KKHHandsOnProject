@@ -1,7 +1,5 @@
-using System.Reflection;
 using KKHHandsOnProject.Database.DapperData;
 using KKHHandsOnProject.Database.Data;
-using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 

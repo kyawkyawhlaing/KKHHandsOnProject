@@ -16,18 +16,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KKHHandsOnProject.Shared", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KKHHandsOnProject.Domain", "KKHHandsOnProject.Domain\KKHHandsOnProject.Domain.csproj", "{D7ADEBD9-C4BC-4C5E-A2A7-7B2DA9538BEB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AspNetCoreIdentityExample", "AspNetCoreIdentityExample", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApi", "WebApi", "{AB0BE5D2-1829-49FF-A4A9-3A7CB50C1610}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreIdentity.WebApi", "AspNetCoreIdentity.WebApi\AspNetCoreIdentity.WebApi.csproj", "{14931DFA-E3AF-4DE6-83A3-69A74C380060}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CSharpBasic", "CSharpBasic", "{30F0BFA3-5C8B-46D3-8547-3FACCA0A1689}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mvc", "Mvc", "{2A334458-5324-46D9-96AA-F3C6E6045B2B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreIdentity.WebMvc", "AspNetCoreIdentity.WebMvc\AspNetCoreIdentity.WebMvc.csproj", "{8F47C5AA-680E-4E61-B5F2-DA9007EA0718}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,23 +38,9 @@ Global
 		{D7ADEBD9-C4BC-4C5E-A2A7-7B2DA9538BEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7ADEBD9-C4BC-4C5E-A2A7-7B2DA9538BEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7ADEBD9-C4BC-4C5E-A2A7-7B2DA9538BEB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{14931DFA-E3AF-4DE6-83A3-69A74C380060}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{14931DFA-E3AF-4DE6-83A3-69A74C380060}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{14931DFA-E3AF-4DE6-83A3-69A74C380060}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{14931DFA-E3AF-4DE6-83A3-69A74C380060}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8F47C5AA-680E-4E61-B5F2-DA9007EA0718}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8F47C5AA-680E-4E61-B5F2-DA9007EA0718}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8F47C5AA-680E-4E61-B5F2-DA9007EA0718}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8F47C5AA-680E-4E61-B5F2-DA9007EA0718}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{AB0BE5D2-1829-49FF-A4A9-3A7CB50C1610} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
-		{14931DFA-E3AF-4DE6-83A3-69A74C380060} = {AB0BE5D2-1829-49FF-A4A9-3A7CB50C1610}
-		{2A334458-5324-46D9-96AA-F3C6E6045B2B} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
-		{8F47C5AA-680E-4E61-B5F2-DA9007EA0718} = {2A334458-5324-46D9-96AA-F3C6E6045B2B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E9362736-BAF7-4808-ABF1-F159D26FFE5F}

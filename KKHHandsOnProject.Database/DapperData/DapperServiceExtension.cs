@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace KKHHandsOnProject.Database.DapperData
 {
-    public static class DapperServiceExtensions
+    public static class DapperServiceExtension
     {
         public static void AddDapperServices(this WebApplicationBuilder builder)
         {

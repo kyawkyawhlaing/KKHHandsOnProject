@@ -16,8 +16,8 @@ namespace KKHHandsOnProject.Domain.Features.Blogs
         public BlogsActionFilter(ILogger<BlogsActionFilter> logger, string key, string value)
         {
             _logger = logger;
-            _key = key;
-            _value = value;
+            _key    = key;
+            _value  = value;
         }
 
         public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)

@@ -5,9 +5,9 @@ namespace KKHHandsOnProject.Database.DapperData
 {
     public interface IDapperRepository
     {
-        Task<int> ExecuteAsync(string query, object? param = null, CommandType? commandType = CommandType.Text, int? timeout = 300);
-        Task<IEnumerable<T>> QueryAsync<T>(string query, object? param = null, CommandType? commandType = CommandType.Text, int? timeout = 300);
-        Task<T> QueryFirstOrDefaultAsync<T>(string query, object? param = null, CommandType? commandType = CommandType.Text, int? timeout = 300);
+        Task<int> ExecuteAsync(SqlParameters sqlParameters);
+        Task<IEnumerable<T>> QueryAsync<T>(SqlParameters sqlParameters);
+        Task<T> QueryFirstOrDefaultAsync<T>(SqlParameters sqlParameters);
     }
 
     public class DapperRepository : IDapperRepository
@@ -20,30 +20,30 @@ namespace KKHHandsOnProject.Database.DapperData
             _dbContext = _dapperContext.CreateConnection();
         }
 
-        public async Task<int> ExecuteAsync(string query, 
-                                            object? param = null, 
-                                            CommandType? type = CommandType.Text, 
-                                            int? timeout = 300)
+        public async Task<int> ExecuteAsync(SqlParameters sqlParameters)
         {
-            var result = await _dbContext.ExecuteAsync(query, param, commandType: type, commandTimeout: timeout);
+            var result = await _dbContext.ExecuteAsync(sqlParameters.Query, 
+                                                       sqlParameters.Parameters,
+                                                       commandType: sqlParameters.CommandType, 
+                                                       commandTimeout: sqlParameters.Timeout);
             return (int)result;
         }
 
-        public async Task<IEnumerable<T>> QueryAsync<T>(string query, 
-                                                        object? param = null, 
-                                                        CommandType? type = CommandType.Text, 
-                                                        int? timeout = 300)
+        public async Task<IEnumerable<T>> QueryAsync<T>(SqlParameters sqlParameters)
         {
-            var items = await _dbContext.QueryAsync<T>(query, param, commandType: type, commandTimeout: timeout);
+            var items = await _dbContext.QueryAsync<T>(sqlParameters.Query,
+                                                       sqlParameters.Parameters,
+                                                       commandType: sqlParameters.CommandType,
+                                                       commandTimeout: sqlParameters.Timeout);
             return items;
         }
 
-        public async Task<T> QueryFirstOrDefaultAsync<T>(string query, 
-                                                         object? param = null, 
-                                                         CommandType? type = CommandType.Text, 
-                                                         int? timeout = 300)
+        public async Task<T> QueryFirstOrDefaultAsync<T>(SqlParameters sqlParameters)
         {
-            var item = await _dbContext.QueryFirstOrDefaultAsync<T>(query, param, commandType: type, commandTimeout: timeout);
+            var item = await _dbContext.QueryFirstOrDefaultAsync<T>(sqlParameters.Query,
+                                                                    sqlParameters.Parameters,
+                                                                    commandType: sqlParameters.CommandType,
+                                                                    commandTimeout: sqlParameters.Timeout);
             return item!;
         }
     }
